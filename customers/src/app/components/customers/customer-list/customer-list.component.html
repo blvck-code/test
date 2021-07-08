@@ -1,0 +1,32 @@
+<div class="container my-5">
+    <div class="d-flex align-items-center justify-content-between">
+        <h5>Clients List</h5>
+        <a class="btn btn-primary rounded-0" [routerLink]="['add']" role="button">Add customer</a>
+    </div>
+    <div class="row py-3">
+        <div class="col-md-10 mx-auto">
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Client First</th>
+                    <th scope="col">Client Last</th>
+                    <th scope="col">Client DOB</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let customer  of customers">
+                    <th scope="row">{{ customer.id }}</th>
+                    <td>{{ customer.firstName}}</td>
+                    <td>{{ customer.lastName}}</td>
+                    <td>{{ customer.DOB | date:"shortDate"}}</td>
+                    <td>
+                        <a class="btn btn-sm rounded-0 btn-secondary" (click)="navigateDetail(customer)">Details</a>
+                    </td>
+                  </tr>                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

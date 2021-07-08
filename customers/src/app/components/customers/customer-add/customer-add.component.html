@@ -1,0 +1,51 @@
+
+<div class="container">
+    <div class="row">
+
+        <div [formGroup]="clientForm" class="col-md-8 col-lg-6 mx-auto my-5">
+          <div class="d-flex align-items-center justify-content-between">
+            <h3>Add client form</h3>
+            <button class="btn btn-sm rounded-0 btn-secondary" [routerLink]="['/customers']">Go Back</button>
+          </div>
+            <form class="py-3" (submit)="onSubmit()">
+                <div *ngIf="message" [class.alert-danger]="messageStatus !== 200" [class.alert-success]="messageStatus === 200" class="alert">{{message}}</div>
+                <div class="form-group pt-4 my-2">
+                  <label>First Name</label>
+                  <input [class.is-invalid]="getFirstName?.invalid && getFirstName?.touched" formControlName="firstName" type="email" class="form-control form-control-sm rounded-0" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter client first name">
+                  <div *ngIf="getFirstName?.invalid && getFirstName?.touched">
+                    <small class="text-danger">First name is required</small>
+                  </div>
+                </div>
+                <div class="form-group my-3">
+                  <label>Last Name</label>
+                  <input [class.is-invalid]="getLastName?.invalid && getLastName?.touched" type="text" class="form-control form-control-sm rounded-0" formControlName="lastName" id="exampleInputPassword1" placeholder="Enter client last name">
+                  <div *ngIf="getLastName?.invalid && getLastName?.touched">
+                    <small class="text-danger">Last name is required</small>
+                  </div>
+                </div>
+                <div class="form-group my-3">
+                    <label>Date of Birth</label>
+                    <input [class.is-invalid]="getDOB?.invalid && getDOB?.touched" type="date" class="form-control form-control-sm rounded-0" formControlName="DOB" id="exampleInputPassword1" placeholder="Enter client dat of birth">
+                    <div *ngIf="getDOB?.invalid && getDOB?.touched">
+                      <small class="text-danger">Clients DOB is required</small>
+                    </div>
+                  </div>
+                  <div class="form-group my-3">
+                    <label>ID Number</label>
+                    <input [class.is-invalid]="getIdNumber?.invalid && getIdNumber?.touched" type="text" class="form-control form-control-sm rounded-0" formControlName="idNumber" id="exampleInputtext1" placeholder="Enter client id number">
+                    <div *ngIf="getIdNumber?.invalid && getIdNumber?.touched">
+                      <small class="text-danger">Client ID Number required</small>
+                    </div>
+                  </div>
+                  <div class="form-group my-3">
+                    <label>Phone Number</label>
+                    <input [class.is-invalid]="getPhoneNumber?.invalid && getPhoneNumber?.touched" type="text" class="form-control form-control-sm rounded-0" formControlName="phoneNumber" id="exampleInputPassword1" placeholder="Enter client phone number">
+                    <div *ngIf="getPhoneNumber?.invalid && getPhoneNumber?.touched">
+                      <small class="text-danger">Client Phone Number required</small>
+                    </div>
+                  </div>
+                <button [disabled]="clientForm.invalid" type="submit" class="btn btn-primary btn-block btn-sm rounded-0">Add client</button>
+              </form>
+        </div>
+    </div>
+</div>
